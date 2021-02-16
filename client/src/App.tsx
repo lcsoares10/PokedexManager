@@ -1,12 +1,17 @@
-import React from 'react';
+import React from 'react'
+import { ThemeProvider } from 'styled-components'
+import { fireTheme, waterTheme, darkTheme } from './themes/index'
+import GlobalStyle from './styles/global'
 
-
-function App() {
+function App () {
   return (
-    <div className="App">
-     
-    </div>
-  );
+    <ThemeProvider theme={fireTheme}>
+      <GlobalStyle/>
+      <div className="App">
+          <div><h1>teste</h1></div>
+      </div>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App
