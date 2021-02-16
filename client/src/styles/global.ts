@@ -10,7 +10,9 @@ export default createGlobalStyle`
 
 body{
   font-family:  'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',sans-serif;
-      background:${props => props.theme.background}
+      background:${props => props.theme.background};
+  width:100vw;
+  height:100vh;
     
 }
 
