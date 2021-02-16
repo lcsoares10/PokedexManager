@@ -1,7 +1,6 @@
+import { createGlobalStyle } from 'styled-components'
 
-import { createGlobalStyle } from 'styled-components';
-
-export default  createGlobalStyle`
+export default createGlobalStyle`
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,11 +9,9 @@ export default  createGlobalStyle`
 } 
 
 body{
-  font-family:  'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+  font-family:  'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',sans-serif;
       background:${props => props.theme.background}
+    
 }
 
-`;
-
+`
