@@ -8,8 +8,8 @@ function Routes() {
     <BrowserRouter>
       <Switch>
         <Route path="/home" component={Home} />
-        <Route path="/" component={Login} />
-        <Route path="*" component={Error404} />
+        <Route exact path="/" component={Login} />
+        <Route path="/*" component={Error404} />
       </Switch>
     </BrowserRouter>
   )

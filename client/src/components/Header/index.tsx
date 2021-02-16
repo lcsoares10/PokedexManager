@@ -4,6 +4,7 @@ import Container from '../Container'
 import Logo from '../../assets/images/pokebola.svg'
 import Pokedex from '../../assets/images/pokedex.svg'
 import Search from '../Search'
+import { Link } from 'react-router-dom'
 // import { Container } from './styles';
 
 const Header: React.FC = () => {
@@ -16,7 +17,9 @@ const Header: React.FC = () => {
 
       <Search />
       <S.Pokedex>
-        <img src={Pokedex} alt="Iamgem da Pokedex" />
+        <Link to="/myPokedex">
+          <img src={Pokedex} alt="Iamgem da Pokedex" />
+        </Link>
       </S.Pokedex>
     </S.BoxHeader>
   )

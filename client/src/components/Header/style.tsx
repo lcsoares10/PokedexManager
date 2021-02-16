@@ -32,7 +32,11 @@ export const Pokedex = styled.div`
   display: flex;
   align-items: center;
   img {
+    cursor: pointer;
     width: 100%;
+    &:hover {
+      filter: grayscale(70%);
+    }
   }
   p {
     margin-left: 12px;
