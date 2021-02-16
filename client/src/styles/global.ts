@@ -6,6 +6,7 @@ export default createGlobalStyle`
   margin: 0;
   outline: 0;
   transition: 0.1s;
+  font-size:62%;
 } 
 
 body{

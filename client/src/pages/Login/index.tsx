@@ -1,0 +1,67 @@
+import React from 'react'
+import Container from '../../components/Container'
+import { Link } from 'react-router-dom'
+// import { Container } from './styles';
+// import PokedexLogin from '../../assets/images/pokedex-login.svg'
+import styled from 'styled-components'
+
+const H1 = styled.h1`
+  margin-top: 150px;
+  padding: 30px;
+  color: ${props => props.theme.light};
+  font-size: 6rem;
+`
+
+const Form = styled.form`
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
+const Input = styled.input`
+  padding: 10px;
+  background: none;
+  border: 2px solid ${props => props.theme.light};
+  border-radius: 30px;
+  font-size: 2rem;
+  padding-left: 50px;
+  margin: 15px;
+  width: 100%;
+  color: ${props => props.theme.secundary};
+`
+const Button = styled.button`
+  padding: 10px 50px;
+
+  color: ${props => props.theme.text};
+  border: 2px solid ${props => props.theme.light};
+  border-radius: 30px;
+  background: ${props => props.theme.light};
+  &:hover {
+    background: ${props => props.theme.primary};
+  }
+  a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    &:hover {
+      color: ${props => props.theme.light};
+    }
+  }
+`
+
+const Login: React.FC = () => {
+  return (
+    <Container>
+      <H1>Pokédex Manager</H1>
+
+      <Form>
+        <Input type="text" placeholder="Digite seu nome" />
+        <Button>
+          <Link to="/home">Entrar</Link>
+        </Button>
+      </Form>
+    </Container>
+  )
+}
+
+export default Login
