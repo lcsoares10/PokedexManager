@@ -1,29 +1,29 @@
 import React from 'react'
-
 import Container from '../Container'
-
+import Title from '../Title'
+import * as S from './style'
 const Main: React.FC = () => {
   return (
     <Container>
-      <main>
-        <header>
-          <h1>Pokémons encontrados</h1>
-          <div>
+      <S.Main>
+        <S.HeaderMain>
+          <Title>Pokémons encontrados</Title>
+          <S.Filter>
             <p>Filtrar por tipo</p>
-            <select name="" id="">
-              <option value="">1</option>
-              <option value="">2</option>
-            </select>
-          </div>
-        </header>
-        <section>
+            <S.SelectFilter>
+              <S.Option value="">1</S.Option>
+              <S.Option value="">2</S.Option>
+            </S.SelectFilter>
+          </S.Filter>
+        </S.HeaderMain>
+        <S.Section>
           <div>
             <div>Pikachu</div>
             <div>Charizard</div>
             <div>Gengar</div>
           </div>
-        </section>
-      </main>
+        </S.Section>
+      </S.Main>
     </Container>
   )
 }
