@@ -10,11 +10,12 @@ export default createGlobalStyle`
 } 
 
 body{
-  font-family:  'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       background:${props => props.theme.background};
   width:100vw;
-  height:100vh;
-    
+  height:100%;
+  overflow-x: hidden;
 }
 
 `

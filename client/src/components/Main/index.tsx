@@ -2,6 +2,8 @@ import React from 'react'
 import Container from '../Container'
 import Title from '../Title'
 import * as S from './style'
+import ListPokemons from '../ListPokemons'
+
 const Main: React.FC = () => {
   return (
     <Container>
@@ -17,11 +19,7 @@ const Main: React.FC = () => {
           </S.Filter>
         </S.HeaderMain>
         <S.Section>
-          <div>
-            <div>Pikachu</div>
-            <div>Charizard</div>
-            <div>Gengar</div>
-          </div>
+          <ListPokemons />
         </S.Section>
       </S.Main>
     </Container>

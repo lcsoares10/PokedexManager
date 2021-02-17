@@ -6,7 +6,7 @@ import Routes from './routes'
 
 function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={waterTheme}>
       <GlobalStyle />
       <Routes />
     </ThemeProvider>

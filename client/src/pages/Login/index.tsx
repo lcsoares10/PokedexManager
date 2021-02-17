@@ -12,7 +12,7 @@ const Login: React.FC = () => {
   }
 
   return (
-    <Container>
+    <Container style={{ height: '100vh' }}>
       <S.H1>Pokédex Manager</S.H1>
       <S.Form onSubmit={event => handleInput(event)}>
         <S.Input type="text" placeholder="Digite seu nome" />

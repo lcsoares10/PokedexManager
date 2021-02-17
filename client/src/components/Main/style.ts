@@ -43,4 +43,6 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
+  padding: 0px 50px;
 `
