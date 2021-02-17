@@ -1,67 +1,57 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useMemo } from 'react'
 import Title from '../Title'
+import ChartPie from '../ChartPie'
+import getTypeColors from './helper/getTypeColorsPokemon'
 
-export const Hero = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`
-
-export const ArticleHero = styled.article`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-`
-
-export const Graphic = styled.div`
-  max-width: 300px;
-  width: 100%;
-`
-export const Subtitle = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-`
-export const SubtitleLine = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-`
-export const SubtitleItem = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  p {
-    font-size: 1rem;
-  }
-  img {
-    width: 30px;
-  }
-`
-
-// import { Container } from './styles';
+import * as S from './style'
 
 const HeroPokedex: React.FC = () => {
+  const names = [
+    'Normal',
+    'Poison',
+    'Steel',
+    'Ice',
+    'Ghost',
+    'Electric',
+    'Ground',
+    'Psychic',
+    'Gass',
+    'Dragon',
+    'Water',
+    'Flying',
+    'Bug',
+    'Ice',
+    'Dark',
+    'Fire',
+    'Rock',
+    'Fighting'
+  ]
+  const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+  const backgroundColor = useMemo(() => getTypeColors({ names: names }), [
+    names
+  ])
+
   return (
-    <Hero>
+    <S.Hero>
       <Title>POKÉDEX</Title>
-      <ArticleHero>
-        <Graphic></Graphic>
-        <Subtitle>
-          <SubtitleLine>
-            <SubtitleItem>
+      <S.ArticleHero>
+        <S.Chart>
+          <ChartPie
+            data={data}
+            labels={names}
+            backgroundColor={backgroundColor}
+          />
+        </S.Chart>
+        <S.Subtitle>
+          <S.SubtitleLine>
+            <S.SubtitleItem>
               <img src="" alt="" />
               <p>Normal</p>
-            </SubtitleItem>
-          </SubtitleLine>
-        </Subtitle>
-      </ArticleHero>
-    </Hero>
+            </S.SubtitleItem>
+          </S.SubtitleLine>
+        </S.Subtitle>
+      </S.ArticleHero>
+    </S.Hero>
   )
 }
 
