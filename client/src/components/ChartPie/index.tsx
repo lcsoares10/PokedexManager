@@ -9,7 +9,6 @@ type dataPie = {
 
 type PropsChartPie = {
   data: Array<dataPie>
-  labels: Array<string>
   backgroundColor: Array<string>
   title?: string
 }
