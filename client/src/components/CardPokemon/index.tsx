@@ -13,7 +13,7 @@ const CardPokemon: React.FC = () => {
         <S.BadgeCard>FIRE</S.BadgeCard>
       </S.ArticleCard>
       <S.FooterCard>
-        <Link to="/detail_Pokemon">
+        <Link to="/pokemon">
           <S.FooterButton>VISUALIZAR</S.FooterButton>
         </Link>
       </S.FooterCard>
