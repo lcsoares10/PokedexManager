@@ -1,13 +1,16 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import { fireTheme, waterTheme, darkTheme } from './themes/index'
+
 import GlobalStyle from './styles/global'
 import Routes from './routes'
 import NavTheme from './components/NavTheme'
+import { useSelector } from 'react-redux'
 
 function App() {
+  const theme = useSelector((state: any) => state.theme)
+
   return (
-    <ThemeProvider theme={waterTheme}>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Routes />
       <NavTheme />
