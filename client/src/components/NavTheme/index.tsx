@@ -1,8 +1,12 @@
 import React from 'react'
+import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
+import { applyTheme } from '../../redux/themeActions'
+
 import DarkLogo from '../../assets/images/dark_logo.svg'
 import WaterLogo from '../../assets/images/water_logo.svg'
 import FireLogo from '../../assets/images/fire_logo.svg'
-import styled from 'styled-components'
+import { fireTheme, waterTheme, darkTheme } from '../../themes'
 
 export const Nav = styled.nav`
   display: flex;
@@ -10,7 +14,7 @@ export const Nav = styled.nav`
   position: fixed;
   left: 0;
   top: 20vw;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
   cursor: pointer;
   img {
     margin: 10px;
@@ -23,11 +27,29 @@ export const Nav = styled.nav`
 `
 
 const NavTheme: React.FC = () => {
+  const dispatch = useDispatch()
+
+  const changeTheme = (theme: any) => {
+    dispatch(applyTheme(theme))
+  }
+
   return (
     <Nav>
-      <img src={DarkLogo} alt="" />
-      <img src={WaterLogo} alt="" />
-      <img src={FireLogo} alt="" />
+      <img
+        src={DarkLogo}
+        onClick={() => changeTheme(darkTheme)}
+        alt="Imagem tema dark"
+      />
+      <img
+        src={WaterLogo}
+        onClick={() => changeTheme(waterTheme)}
+        alt="Imagem tema water"
+      />
+      <img
+        src={FireLogo}
+        onClick={() => changeTheme(fireTheme)}
+        alt="Imagem tema fire"
+      />
     </Nav>
   )
 }
