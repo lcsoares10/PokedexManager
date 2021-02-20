@@ -7,6 +7,7 @@ const GET_ALL_POKEMONS = gql`
       results {
         name
         id
+        image
       }
       status
     }
