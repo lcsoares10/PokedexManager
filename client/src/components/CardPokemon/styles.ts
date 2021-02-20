@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 export const Card = styled.div`
   display: flex;
-  margin: 15px 0px;
+  margin: 15px 10px;
   flex-direction: column;
-  width: 100%;
+  width: 300px;
   max-width: 320px;
   padding: 0px 10px;
   background: ${props => props.theme.primary};
