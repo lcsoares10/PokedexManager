@@ -2,6 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Card from '../CardPokemon'
+import client from '../../services/graphql/client'
+import useSWR from 'swr'
+import { RequestDocument } from 'graphql-request/dist/types'
+import GET_ALL_POKEMONS from '../../services/graphql/queries/getAllpokemons'
+import searchPokemon from '../../utils/searchPokemon'
+import { useSearch } from '../../context/Search'
 
 export const List = styled.div`
   margin-top: 80px;
@@ -13,14 +19,26 @@ export const List = styled.div`
   flex-wrap: wrap;
 `
 const ListPokemons: React.FC = () => {
-  const data = [1, 2, 3, 4]
+  const { search } = useSearch()
+  const fetcher = async (query: RequestDocument) =>
+    await client.request(query, { limit: 1500 })
+
+  const { data, error } = useSWR(GET_ALL_POKEMONS, fetcher)
+  if (!data) {
+    return <p>Aguarde</p>
+  }
+  const pokemons = { ...data.pokemons }
+  const pokemonsFound = searchPokemon(pokemons.results, search)
+
   return (
     <React.Fragment>
-      <List>
-        {data.map((pokemon, key) => (
-          <Card key={key} />
-        ))}
-      </List>
+      {pokemonsFound && (
+        <List>
+          {pokemonsFound.map((pokemon: any, key: any) => (
+            <Card key={key} />
+          ))}
+        </List>
+      )}
     </React.Fragment>
   )
 }
