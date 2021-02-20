@@ -17,6 +17,7 @@ export const TitleCard = styled.h2`
   text-align: left;
   margin: 20px;
   color: ${props => props.theme.text};
+  text-transform: capitalize;
 `
 export const ArticleCard = styled.article`
   width: 100%;
