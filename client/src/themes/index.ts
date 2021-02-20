@@ -7,17 +7,17 @@ export const fireTheme: ThemeType = {
   title: '#862A11',
   light: '#FFFFFF',
   dark: '#000000',
-  background: 'linear-gradient(180deg, #FAC500 0%, #F86B00 100%);'
+  background: '#FFFFFF'
 }
 
 export const waterTheme: ThemeType = {
   primary: '#4E90D6',
   secundary: '#85D2E9',
   text: '#FFFFFF',
-  title: '#FFFFFF',
+  title: '#2e2e2e',
   light: '#FFFFFF',
   dark: '#000000',
-  background: 'linear-gradient(180deg, #4E90D6 0%, #E5E5E5 100%);'
+  background: '#FFFFFF'
 }
 
 export const darkTheme = {
