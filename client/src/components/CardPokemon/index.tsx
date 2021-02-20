@@ -2,14 +2,19 @@ import React from 'react'
 import Poke from '../../assets/images/poke.svg'
 import * as S from './styles'
 import { Link } from 'react-router-dom'
-// import { Container } from './styles';
+import { pokemonType } from '../../services/graphql/api/types/pokemon'
 
-const CardPokemon: React.FC = () => {
+type propsCard = {
+  pokemon: pokemonType
+}
+const CardPokemon: React.FC<propsCard> = props => {
+  const { pokemon } = props
+  //  console.log(pokemon)
   return (
     <S.Card>
-      <S.TitleCard>Pikachu</S.TitleCard>
+      <S.TitleCard>{pokemon.name}</S.TitleCard>
       <S.ArticleCard>
-        <S.FigureCard src={Poke} />
+        <S.FigureCard src={`${pokemon.image}`} />
         <S.BadgeCard>FIRE</S.BadgeCard>
       </S.ArticleCard>
       <S.FooterCard>
