@@ -42,5 +42,7 @@ export const Option = styled.option`
 export const Section = styled.section`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  max-width: 990px;
   width: 100%;
 `

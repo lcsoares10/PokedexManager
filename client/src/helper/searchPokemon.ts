@@ -7,7 +7,7 @@ import {
 } from '../services/graphql/api/types/pokemon'
 
 function searchPokemon(search: string): Array<pokemonType> {
-  const { data, error } = useFetch(GET_ALL_POKEMONS)
+  const { data, error } = useFetch(GET_ALL_POKEMONS, { limit: 1500 })
   const searchclean = search.trim().toLowerCase()
 
   if (!data) {

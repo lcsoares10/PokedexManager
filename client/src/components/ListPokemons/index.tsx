@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import Card from '../CardPokemon'
 
 import searchPokemon from '../../helper/searchPokemon'
