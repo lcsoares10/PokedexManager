@@ -1,11 +1,21 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
 import Header from '../../components/Header'
-import HeroPokedex from '../../components/HeroPokedex'
-import Main from '../../components/Main'
+import Container from '../../components/Container'
+import DetailPokemon from '../../components/DetailPokemon'
 
 const Pokedex: React.FC = () => {
-  return <></>
+  const { name } = useParams<{ name: string }>()
+
+  return (
+    <>
+      <Header notSearch={false} />
+      <Container>
+        <DetailPokemon name={name} />
+      </Container>
+    </>
+  )
 }
 
 export default Pokedex
