@@ -5,8 +5,11 @@ import Pokedex from '../../assets/images/pokedex.svg'
 import Search from '../Search'
 import { Link } from 'react-router-dom'
 // import { Container } from './styles';
+type propsType = {
+  notSearch?: boolean
+}
 
-const Header: React.FC = () => {
+const Header: React.FC<propsType> = props => {
   const [userName, setUserName] = useState<string>()
 
   useEffect(() => {
@@ -20,8 +23,8 @@ const Header: React.FC = () => {
         <img src={Logo} alt="imagem da pookebola" />
         <p>{`Olá, ${userName}`}</p>
       </S.Logo>
+      {props.notSearch === undefined && <Search />}
 
-      <Search />
       <S.Pokedex>
         <Link to="/myPokedex">
           <img src={Pokedex} alt="Iamgem da Pokedex" />
