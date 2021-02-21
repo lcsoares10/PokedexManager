@@ -1,5 +1,4 @@
-import React from 'react'
-import Poke from '../../assets/images/poke.svg'
+import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 import { Link } from 'react-router-dom'
 import { pokemonType } from '../../services/graphql/api/types/pokemon'
@@ -9,16 +8,26 @@ type propsCard = {
 }
 const CardPokemon: React.FC<propsCard> = props => {
   const { pokemon } = props
-  //  console.log(pokemon)
+  // const [pokemonApi, setPokemonApi] = useState<any>()
+
+  // useEffect(() => {
+  //   async function getPokemon() {
+  //     const data = await client.request(GET_POKEMONS, { name: pokemon.name })
+  //     setPokemonApi({ ...data.pokemon })
+  //   }
+  //   getPokemon()
+  // }, [pokemon.name])
+
+  // console.log(pokemonApi)
+
   return (
     <S.Card>
       <S.TitleCard>{pokemon.name}</S.TitleCard>
       <S.ArticleCard>
         <S.FigureCard src={`${pokemon.image}`} />
-        <S.BadgeCard>FIRE</S.BadgeCard>
       </S.ArticleCard>
       <S.FooterCard>
-        <Link to="/pokemon">
+        <Link to={`pokemon/${pokemon.name}`}>
           <S.FooterButton>VISUALIZAR</S.FooterButton>
         </Link>
       </S.FooterCard>
