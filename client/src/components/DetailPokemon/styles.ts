@@ -31,9 +31,26 @@ export const Profile = styled.div`
   flex-direction: column;
   align-items: center;
 `
-export const ProfileContext = styled.p`
+export const AddPokedex = styled.button`
+  margin-top: 10px;
   font-size: 1.5rem;
   color: ${props => props.theme.text};
+  background: green;
+  padding: 10px 100%;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  cursor: pointer;
+  &:hover {
+    background: ${props => props.theme.background};
+    border: 2px solid green;
+  }
+`
+
+export const RemovePokedex = styled(AddPokedex)`
+  background: red;
+  &:hover {
+    border: 2px solid red;
+  }
 `
 
 export const Article = styled.article`
