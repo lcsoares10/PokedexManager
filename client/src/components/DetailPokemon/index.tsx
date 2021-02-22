@@ -22,6 +22,10 @@ const DetailPokemon: React.FC<propsCard> = props => {
   const pokemonDetail = { ...data.pokemon }
   console.log(pokemonDetail)
 
+  const handleAddPokedex = () => {
+    localStorage.setItem('pokedex', name)
+  }
+
   return (
     <>
       <S.Header>
@@ -31,7 +35,10 @@ const DetailPokemon: React.FC<propsCard> = props => {
         <S.Aside>
           <S.Img src={pokemonDetail.sprites.front_default} />
           <S.Profile>
-            <S.ProfileContext>texto</S.ProfileContext>
+            <S.AddPokedex onClick={e => handleAddPokedex()}>
+              Adicionar
+            </S.AddPokedex>
+            <S.RemovePokedex>Remover</S.RemovePokedex>
           </S.Profile>
         </S.Aside>
         <S.Article>
