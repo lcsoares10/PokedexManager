@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { types } from 'util'
+import React from 'react'
+import { addPokemon, removePokemon } from '../../redux/pokedex/actions'
 import { useFetch } from '../../hook/useFetch'
+import { useDispatch, useSelector } from 'react-redux'
 import GET_POKEMONS from '../../services/graphql/queries/getPokemon'
 import Title from '../Title'
 import * as S from './styles'
@@ -14,18 +15,33 @@ type propsCard = {
 }
 const DetailPokemon: React.FC<propsCard> = props => {
   const { name } = props
+  const dispatch = useDispatch()
+  const pokedex: Array<string> = useSelector(
+    (state: any) => state.pokedexReducer.pokedex
+  )
+
   const { data, error } = useFetch(GET_POKEMONS, { name: name })
   if (!data) {
     return <h1>Carregando</h1>
   }
 
   const pokemonDetail = { ...data.pokemon }
-  console.log(pokemonDetail)
 
-  const handleAddPokedex = () => {
-    localStorage.setItem('pokedex', name)
+  const myPokemon = pokedex.find((namePokedex: string) => namePokedex === name)
+
+  const handleAddPokedex = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault()
+    dispatch(addPokemon({ name: name }))
   }
 
+  const handleRemovePokedex = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault()
+    dispatch(removePokemon({ name: name }))
+  }
   return (
     <>
       <S.Header>
@@ -35,10 +51,16 @@ const DetailPokemon: React.FC<propsCard> = props => {
         <S.Aside>
           <S.Img src={pokemonDetail.sprites.front_default} />
           <S.Profile>
-            <S.AddPokedex onClick={e => handleAddPokedex()}>
-              Adicionar
-            </S.AddPokedex>
-            <S.RemovePokedex>Remover</S.RemovePokedex>
+            {!myPokemon && (
+              <S.AddPokedex onClick={e => handleAddPokedex(e)}>
+                Adicionar
+              </S.AddPokedex>
+            )}
+            {myPokemon && (
+              <S.RemovePokedex onClick={e => handleRemovePokedex(e)}>
+                Remover
+              </S.RemovePokedex>
+            )}
           </S.Profile>
         </S.Aside>
         <S.Article>
