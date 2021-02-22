@@ -1,4 +1,4 @@
-import { ThemeType } from '../themes'
+import { ThemeType } from '../../themes'
 export const APPLY_THEME = 'APPLY_THEME'
 export type themeAction = {
   type: string

@@ -1,5 +1,5 @@
-import * as Actions from './themeActions'
-import { darkTheme } from '../themes'
+import * as Actions from './actions'
+import { darkTheme } from '../../themes'
 
 const initialState = {
   theme: darkTheme
