@@ -10,7 +10,7 @@ function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/pokemon" component={Pokemon} />
+        <Route path="/pokemon/:name" component={Pokemon} />
         <Route path="/myPokedex" component={Pokedex} />
         <Route path="/home" component={Home} />
         <Route exact path="/" component={Login} />
