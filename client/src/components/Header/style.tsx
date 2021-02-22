@@ -11,7 +11,7 @@ export const BoxHeader = styled.div`
 `
 export const Logo = styled.div`
   margin-left: 30px;
-
+  cursor: pointer;
   display: flex;
   align-items: center;
   img {
