@@ -3,11 +3,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { Provider } from 'react-redux'
-
-import { themeReducer } from './redux/themeReducer'
-import { createStore } from 'redux'
-const store = createStore(themeReducer)
-
+import store from './store'
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
