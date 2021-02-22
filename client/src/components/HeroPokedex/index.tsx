@@ -37,7 +37,7 @@ const HeroPokedex: React.FC = () => {
         <S.Chart>
           <ChartPie data={myTypes} backgroundColor={backgroundColor} />
         </S.Chart>
-        <LegendTypesPokemon legends={legends} />
+        <LegendTypesPokemon legends={legends} myTypes={myTypes} />
       </S.ArticleHero>
     </S.Hero>
   )
