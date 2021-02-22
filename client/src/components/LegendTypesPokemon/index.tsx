@@ -1,18 +1,16 @@
 import React from 'react'
 import * as S from './style'
-// import { Container } from './styles';
-import DarkLogo from '../../assets/images/dark_logo.svg'
-import FireLogo from '../../assets/images/fire_logo.svg'
+type props = {
+  legends: Array<string>
+}
 
-const LegendTypesPokemon: React.FC = () => {
-  const data = [1, 2, 3, 4, 5, 6, 7, 8]
-
+const LegendTypesPokemon: React.FC<props> = props => {
   return (
     <S.Subtitle>
       <S.SubtitleLine>
-        {data.map(key => (
+        {props.legends.map((url, key) => (
           <S.SubtitleItem key={key}>
-            <img src={DarkLogo} alt="" />
+            <img src={url} alt="" />
             <p>Normal</p>
           </S.SubtitleItem>
         ))}

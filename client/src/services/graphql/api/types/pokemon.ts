@@ -3,7 +3,7 @@ export type pokemonType = {
   url?: string
   image: string
   id: number
-  types?: []
+  types: string
 }
 
 export type pokemonListType = {

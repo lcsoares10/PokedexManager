@@ -14,10 +14,16 @@ export const List = styled.div`
   justify-content: flex-start;
   flex-wrap: wrap;
 `
-const ListPokemons: React.FC = () => {
-  const { search } = useSearch()
-  const pokemonsFound = searchPokemon(search)
+type props = {
+  pokemons?: Array<pokemonType> | undefined
+}
 
+const ListPokemons: React.FC<props> = props => {
+  const { search } = useSearch()
+  const pokemonsFound =
+    props.pokemons === undefined ? searchPokemon(search) : props.pokemons
+
+  console.log(pokemonsFound)
   return (
     <React.Fragment>
       {pokemonsFound && (
