@@ -7,8 +7,7 @@ import NavTheme from './components/NavTheme'
 import { useSelector } from 'react-redux'
 
 function App() {
-  const theme = useSelector((state: any) => state.theme)
-
+  const theme = useSelector((state: any) => state.themeReducer.theme)
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
