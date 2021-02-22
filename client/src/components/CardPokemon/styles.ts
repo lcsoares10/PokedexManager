@@ -2,6 +2,7 @@ import styled from 'styled-components'
 export const Card = styled.div`
   display: flex;
   margin: 15px 10px;
+  align-items: center;
   flex-direction: column;
   width: 300px;
   max-width: 320px;
@@ -22,8 +23,8 @@ export const TitleCard = styled.h2`
 export const ArticleCard = styled.article`
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   padding: 10px;
 `
@@ -48,7 +49,7 @@ export const FooterCard = styled.div`
 export const FooterButton = styled.button`
   background: ${props => props.theme.secundary};
   color: ${props => props.theme.text};
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   border: 2px solid ${props => props.theme.secundary};
   border-radius: 30px;
   padding: 10px 20px;
