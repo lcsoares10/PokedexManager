@@ -19,10 +19,13 @@ const Header: React.FC<propsType> = props => {
 
   return (
     <S.BoxHeader>
-      <S.Logo>
-        <img src={Logo} alt="imagem da pookebola" />
-        <p>{`Olá, ${userName}`}</p>
-      </S.Logo>
+      <Link to="/home">
+        <S.Logo>
+          <img src={Logo} alt="imagem da pookebola" />
+          <p>{`Olá, ${userName}`}</p>
+        </S.Logo>
+      </Link>
+
       {props.notSearch === undefined && <Search />}
 
       <S.Pokedex>
