@@ -3,7 +3,8 @@ export const REMOVE_POKEMON = 'REMOVE_POKEMON'
 
 export type pokemon = {
   name: string
-  type: string
+  types: string
+  image: string
 }
 
 export type pokemonAction = {
