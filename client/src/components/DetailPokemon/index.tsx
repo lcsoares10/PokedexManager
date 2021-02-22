@@ -27,16 +27,14 @@ const DetailPokemon: React.FC<propsCard> = props => {
   }
 
   const pokemonDetail = { ...data.pokemon }
-  console.log(pokedex)
-
   const myPokemon = pokedex.find(pokemon => pokemon.name === name)
 
-  const handleAddPokedex = (type: string) => {
-    dispatch(addPokemon({ name, type }))
+  const handleAddPokedex = (types: string, image: string) => {
+    dispatch(addPokemon({ name, types, image }))
   }
 
-  const handleRemovePokedex = (type: string) => {
-    dispatch(removePokemon({ name: name, type }))
+  const handleRemovePokedex = (types: string, image: string) => {
+    dispatch(removePokemon({ name: name, types, image }))
   }
   return (
     <>
@@ -50,7 +48,10 @@ const DetailPokemon: React.FC<propsCard> = props => {
             {!myPokemon && (
               <S.AddPokedex
                 onClick={e =>
-                  handleAddPokedex(pokemonDetail.types[0].type.name)
+                  handleAddPokedex(
+                    pokemonDetail.types[0].type.name,
+                    pokemonDetail.sprites.front_default
+                  )
                 }
               >
                 Adicionar
@@ -59,7 +60,10 @@ const DetailPokemon: React.FC<propsCard> = props => {
             {myPokemon && (
               <S.RemovePokedex
                 onClick={e =>
-                  handleRemovePokedex(pokemonDetail.types[0].type.name)
+                  handleRemovePokedex(
+                    pokemonDetail.types[0].type.name,
+                    pokemonDetail.sprites.front_default
+                  )
                 }
               >
                 Remover
