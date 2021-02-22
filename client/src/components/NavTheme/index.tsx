@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
-import { applyTheme } from '../../redux/themeActions'
+import { applyTheme } from '../../redux/theme/actions'
 
 import DarkLogo from '../../assets/images/dark_logo.svg'
 import WaterLogo from '../../assets/images/water_logo.svg'
