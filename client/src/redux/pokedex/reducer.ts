@@ -1,3 +1,4 @@
+import { pokemonType } from '../../services/graphql/api/types/pokemon'
 import * as Actions from './actions'
 const initialState = {
   pokedex:
@@ -20,8 +21,12 @@ export const pokedexReducer = (
 
   switch (action.type) {
     case Actions.ADD_POKEMON:
-      if (!pokedex.find((name: string) => name === action.payload.name)) {
-        pokedex.push(action.payload.name)
+      if (
+        !pokedex.find(
+          (pokemon: pokemonType) => pokemon.name === action.payload.name
+        )
+      ) {
+        pokedex.push(action.payload)
         localStorage.setItem('pokedex', JSON.stringify(pokedex))
         state.pokedex = pokedex
         return state
@@ -29,8 +34,8 @@ export const pokedexReducer = (
       return pokedex
 
     case Actions.REMOVE_POKEMON:
-      pokedex = pokedex.filter((element: string) => {
-        return element !== action.payload.name
+      pokedex = pokedex.filter((element: pokemonType) => {
+        return element.name !== action.payload.name
       })
       localStorage.setItem('pokedex', JSON.stringify(pokedex))
       state.pokedex = pokedex

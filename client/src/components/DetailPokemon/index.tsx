@@ -3,6 +3,7 @@ import { addPokemon, removePokemon } from '../../redux/pokedex/actions'
 import { useFetch } from '../../hook/useFetch'
 import { useDispatch, useSelector } from 'react-redux'
 import GET_POKEMONS from '../../services/graphql/queries/getPokemon'
+import { pokemonType } from '../../services/graphql/api/types/pokemon'
 import Title from '../Title'
 import * as S from './styles'
 import {
@@ -16,7 +17,7 @@ type propsCard = {
 const DetailPokemon: React.FC<propsCard> = props => {
   const { name } = props
   const dispatch = useDispatch()
-  const pokedex: Array<string> = useSelector(
+  const pokedex: Array<pokemonType> = useSelector(
     (state: any) => state.pokedexReducer.pokedex
   )
 
@@ -26,21 +27,16 @@ const DetailPokemon: React.FC<propsCard> = props => {
   }
 
   const pokemonDetail = { ...data.pokemon }
+  console.log(pokedex)
 
-  const myPokemon = pokedex.find((namePokedex: string) => namePokedex === name)
+  const myPokemon = pokedex.find(pokemon => pokemon.name === name)
 
-  const handleAddPokedex = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    e.preventDefault()
-    dispatch(addPokemon({ name: name }))
+  const handleAddPokedex = (type: string) => {
+    dispatch(addPokemon({ name, type }))
   }
 
-  const handleRemovePokedex = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    e.preventDefault()
-    dispatch(removePokemon({ name: name }))
+  const handleRemovePokedex = (type: string) => {
+    dispatch(removePokemon({ name: name, type }))
   }
   return (
     <>
@@ -52,12 +48,20 @@ const DetailPokemon: React.FC<propsCard> = props => {
           <S.Img src={pokemonDetail.sprites.front_default} />
           <S.Profile>
             {!myPokemon && (
-              <S.AddPokedex onClick={e => handleAddPokedex(e)}>
+              <S.AddPokedex
+                onClick={e =>
+                  handleAddPokedex(pokemonDetail.types[0].type.name)
+                }
+              >
                 Adicionar
               </S.AddPokedex>
             )}
             {myPokemon && (
-              <S.RemovePokedex onClick={e => handleRemovePokedex(e)}>
+              <S.RemovePokedex
+                onClick={e =>
+                  handleRemovePokedex(pokemonDetail.types[0].type.name)
+                }
+              >
                 Remover
               </S.RemovePokedex>
             )}
